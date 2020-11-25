@@ -1,0 +1,226 @@
+Assignment 5 readme File
+
+------------------------------------------------------------------------
+Student 1: What is your name?
+
+Marti Vives
+
+------------------------------------------------------------------------
+Student 2: What is your name?
+
+Minh-Thi Nguyen 
+
+------------------------------------------------------------------------
+How many late days are you using on this assignment?
+
+0 
+
+------------------------------------------------------------------------
+Student 1: What authorized sources of information did you use to
+complete the assignment? COPY THE LIST of authorized sources of
+information given in the "Policies" web page to this section of the
+readme file, and edit it as appropriate.
+
+
+Used: Assignment Page, Lecture, Precepts, Preceptor
+
+Authorized sources: 
+
+The course's lectures.
+
+The course's precepts.
+
+The course's website.
+
+Documents that are referenced directly by the course's website. Such documents include the course's lecture slides and precept handouts.
+
+The course's textbooks.
+
+The man pages on the armlab cluster.
+
+The course's current staff members outside of class time through office hours.
+
+The course's current staff members outside of class time through meetings.
+
+The course's current staff members outside of class time through Ed.
+
+The course's current staff members outside of class time through e-mail.
+
+Current lab teaching assistants through visits to the course labs.
+
+------------------------------------------------------------------------
+Student 2: What authorized sources of information did you use to
+complete the assignment? COPY THE LIST of authorized sources of
+information given in the "Policies" web page to this section of the
+readme file, and edit it as appropriate.
+
+
+Used: Assignment Page, Lecture, Precepts, Preceptor
+
+Authorized sources: 
+
+The course's lectures.
+
+The course's precepts.
+
+The course's website.
+
+Documents that are referenced directly by the course's website. Such documents include the course's lecture slides and precept handouts.
+
+The course's textbooks.
+
+The man pages on the armlab cluster.
+
+The course's current staff members outside of class time through office hours.
+
+The course's current staff members outside of class time through meetings.
+
+The course's current staff members outside of class time through Ed.
+
+The course's current staff members outside of class time through e-mail.
+
+Current lab teaching assistants through visits to the course labs.
+
+------------------------------------------------------------------------
+Student 1: What unauthorized sources of information did you use to
+complete the assignment? List any unauthorized sources of information
+that you used to complete the assignment, and describe how you used
+them. The course "Policies" web page defines unauthorized sources of
+information, and any source that you have used but not listed in the
+authorized sources should be included here. Please note that using an
+unauthorized source may trigger a course penalty, and depending on the
+nature of the interaction, may additionally require the interaction
+being reported to the Committee on Discipline. Write "None" if you used
+no unauthorized sources of information.
+
+None. 
+------------------------------------------------------------------------
+Student 2: What unauthorized sources of information did you use to
+complete the assignment? List any unauthorized sources of information
+that you used to complete the assignment, and describe how you used
+them. The course "Policies" web page defines unauthorized sources of
+information, and any source that you have used but not listed in the
+authorized sources should be included here. Please note that using an
+unauthorized source may trigger a course penalty, and depending on the
+nature of the interaction, may additionally require the interaction
+being reported to the Committee on Discipline. Write "None" if you used
+no unauthorized sources of information.
+
+None. 
+
+------------------------------------------------------------------------
+Student 1: What is your assessment of the assignment? Was it helpful?
+Was it fun?
+
+Helpful to grasp assembly language.
+
+------------------------------------------------------------------------
+Student 2: What is your assessment of the assignment? Was it helpful?
+Was it fun?
+
+The assignment allowed me to understand more about assembly language 
+and learn more about the details of compilation. 
+
+------------------------------------------------------------------------
+(optional) What information can you provide about your submission that
+will help your grader to grade it in the most favorable light? In
+particular, what bugs are in your submission?
+
+We implemented part 2f with the guarded loop but did not improve
+performance, so we commented out the guarded loop lines in the 
+code. Adding BigInt_larger into BigInt_add did slightly improve
+the performance. We tried to implement the third part of optimization 
+using adcs, but we ran into errors with addition overflow
+
+------------------------------------------------------------------------
+What is your mywc program test plan?
+
+Boundary tests:
+
+mywc_Boundary_01.txt: Emtpy text file. Testing for the boundary of 
+					  number of (lines,words,characters) = (0,0,0) 
+					  read from stdin.
+
+mywc_Boundary_02.txt: Text file with one space character. Testing 
+					  for the boundary of number of (lines,words,
+					  characters) = (0,0,1) read from stdin.
+
+mywc_Boundary_03.txt: Text file with one newline character. Testing
+					  for the boundary of number of (lines,words,
+					  characters) = (1,0,1) read from stdin.
+
+mywc_Boundary_04.txt: Text file with one space followed by a newline.
+					  Testing for the boundary of number of (lines,
+					  words,characters) = (1,0,2) read from stdin.	
+
+mywc_Boundary_05.txt: Text file with one non space/newline character, 
+					  specifically a single 'c' character. Testing 
+					  for boundary of number of (lines,words,characters)
+					  = (0,1,1) read from stdin.
+
+mywc_Boundary_06.txt: Text file with 'c', followed by newline, followed
+					  by 'c'. Testing for boundary of number of (lines,
+					  words,characters) = (1,2,3) read from stdin.
+
+
+Statement tests:
+
+mywc_Statement_01.txt: This text file has a newline character, followed
+					   by a space followed by a character 'a'. This goes
+					   through all lines of code in mywc.c since:
+
+					   The file is not empty so we go through line 30 to
+					   34, since the first character is newline, we go 
+					   to line 42 inside the else and since iInWord is 
+					   initially FALSE then we visit lines 44 and 45, 
+					   setting iInWord to TRUE, then we visit line 48 
+					   and 49 since this is a newline character. In the
+					   next iteration of the while, with the space 
+					   character we do enter inside the if statement 
+					   after line 34, visiting lines 36 to 40 (since
+					   iInWord was set to TRUE) and thus setting
+					   iInWord to FALSE again. Finally in the last 
+					   iteration of the while loop, with the character
+					   'a', the condition of the if at line 34 is not
+					   met so we go to the else statement and set
+					   iInWord to TRUE. Now we exit the loop and since
+					   iInWord is TRUE we visit lines 51 to 56. So we
+					   visited all the lines of code.
+
+
+Stress tests: We created a mywc_stress.c code to randomly generate test 
+			  files containing only the character codes (in hexadecimal) 
+			  09,0A, and 20 through 7E (inclusive).
+
+mywc_Stress_01.txt: Randomly generated test file with characteristics as
+				    described above with (lines,words,characters) = 
+				    (103,272,10000). It stress tests mywc since it has
+				    10000 randomly chosen characters, so large and diverse
+				    data set.
+
+mywc_Stress_02.txt: Randomly generated test file with characteristics as
+				    described above with (lines,words,characters) = 
+				    (400,1205,40000). It stress tests mywc since it has
+				    40000 randomly chosen characters, so large and diverse
+				    data set.
+
+
+
+
+------------------------------------------------------------------------
+What are the CPU times consumed by the programs from Parts 2a, 2b, 2d,
+2e, and 2f to compute fib(250000) on armlab? Fill in the blanks.
+
+Part 2a:  12.000000 seconds
+
+Part 2b:  3.020000 seconds
+
+Part 2d:  16.210000 seconds
+
+Part 2e:  6.510000 seconds
+
+Part 2f:  6.380000 seconds
+
+
+
+
